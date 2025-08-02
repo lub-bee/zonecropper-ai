@@ -30,10 +30,21 @@ function App() {
         <div className="app-container">
             <h1>AI-ZoneCropper</h1>
             
-            <DocumentLoader onImageLoad={setImage}/>
+            <DocumentLoader onImageLoad={handleImageLoad}/>
 
             {image && (
                 <>
+                    <div style={{ margin: '1rem 0' }}>
+                        <label style={{ display: 'block', fontWeight: 'bold' }}>Nom de l’archive :</label>
+                        <input
+                            type="text"
+                            value={customZipName}
+                            onChange={(e) => setCustomZipName(e.target.value)}
+                            placeholder="Nom du fichier exporté"
+                            style={{ width: '100%', maxWidth: '400px', padding: '0.5rem' }}
+                        />
+                    </div>
+
                     <CanvasEditor image={image} zones={zones} setZones={setZones} />
                     <ZoneList image={image} zones={zones} onDelete={handleDeleteZone} />
                     <PromptOutput zones={zones} />

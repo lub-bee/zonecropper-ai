@@ -18,8 +18,8 @@
 
 ### Export
 
-- [Todo] Live preview list of each cropped zone
-- [Todo] Delete zone, download zone image, or copy to clipboard (per zone)
+- Live preview list of each cropped zone
+- Delete zone, download zone image, or copy to clipboard (per zone)
 - Export all zones + prompt file in a single `.zip`
 - [Todo] Filename customizable (default: `originalFileName_zoneCropperAI.zip`)
 - [Todo] Optional: include or exclude prompt file in export
@@ -99,12 +99,24 @@ This is an internal or private tool. You are free to use, adapt, or extend it fo
 
 ---
 
+## Bug Known
+
+- Selected Zone - Copy doesn't work on Firefox / Safari
+- The initial document name is not loaded in the "Archive Name"
+
+---
+
 ## Todo
-- [ ] Unique color for each zone (20+ predefined rotating colors)
-- [ ] Live preview list of each cropped zone
-- [ ] Delete zone, download zone image, or copy to clipboard (per zone)
-- [ ] Filename customizable (default: `originalFileName_zoneCropperAI.zip`)
+
+- [.] Unique color for each zone (20+ predefined rotating colors)
+- [X] Live preview list of each cropped zone
+- [X] Delete zone
+- [X] Download zone image
+- [X] Copy to clipboard (per zone)
+- [X] Filename customizable (default: `originalFileName_zoneCropperAI.zip`)
 - [ ] Optional: include or exclude prompt file in export
 - [ ] Read-only text area displaying generated instructions
 - [ ] Button to copy the prompt to clipboard
 - [ ] Support PDF file (other than just first page)
+- [ ] Display a warning for Firefox / Safari users to inform that the images can't be put in clipboard
+- [ ] Display a warning when around zone <= 15 to inform near max limit
