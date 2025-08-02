@@ -1,8 +1,11 @@
 import React from 'react';
 import { cropImageZone } from '../utils/zoneHelpers';
+import { ZONE_COLORS } from '../utils/color';
 
 const ZoneItem = ({ imageElement, zone, index, onDelete }) => {
     const preview = cropImageZone(imageElement, zone);
+    const color = ZONE_COLORS[index % ZONE_COLORS.length];
+
 
     const handleCopy = () => {
         navigator.clipboard.writeText(preview);
@@ -18,7 +21,19 @@ const ZoneItem = ({ imageElement, zone, index, onDelete }) => {
             textAlign: 'center',
         }}
     >
-        <div style={{ fontSize: '12px', marginBottom: '0.25rem' }}>
+        <div 
+            style={{ 
+                fontSize: '12px', 
+                marginBottom: '0.25rem',
+                border: '1px solid #ccc',
+                padding: '0.5rem',
+                textAlign: 'center',
+                backgroundColor: '#f9f9f9',
+                borderLeft: `3px solid ${color}`,
+                borderRight: `3px solid ${color}`,
+                borderRadius: '4px',
+            }}
+        >
             Zone {index + 1}
         </div>
         <img
@@ -47,7 +62,17 @@ const ZoneList = ({ image, zones, onDelete }) => {
 
     return (
         <div style={{ marginTop: '1rem' }}>
-            <h2>Zones sélectionnées</h2>
+            <h2>Zones sélectionnées ({zones.length})</h2>
+
+            {zones.length >= 20 ? (
+                <div style={{ color: '#b55', fontSize: '0.9rem' }}>
+                    ⚠️ You like to live dangerously… So be it.
+                </div>
+            ) : zones.length > 10 && (
+                <div style={{ color: '#b55', fontSize: '0.9rem' }}>
+                    ⚠️ Too many zones may reduce translation accuracy and cause mistakes the tool was made to avoid.
+                </div>
+            )}
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
                 {zones.map((zone, index) => (

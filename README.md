@@ -108,7 +108,7 @@ This is an internal or private tool. You are free to use, adapt, or extend it fo
 
 ## Todo
 
-- [.] Unique color for each zone (20+ predefined rotating colors)
+- [X] Unique color for each zone (20+ predefined rotating colors)
 - [X] Live preview list of each cropped zone
 - [X] Delete zone
 - [X] Download zone image
@@ -119,4 +119,4 @@ This is an internal or private tool. You are free to use, adapt, or extend it fo
 - [ ] Button to copy the prompt to clipboard
 - [ ] Support PDF file (other than just first page)
 - [ ] Display a warning for Firefox / Safari users to inform that the images can't be put in clipboard
-- [ ] Display a warning when around zone <= 15 to inform near max limit
+- [X] Display a warning when around zone <= 15 to inform near max limit
