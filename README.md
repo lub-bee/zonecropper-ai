@@ -96,3 +96,15 @@ Machine translation tools often fail to handle dense visual documents (such as d
 ## License
 
 This is an internal or private tool. You are free to use, adapt, or extend it for in-house or professional use. No guarantees, no tracking, no server-side processing.
+
+---
+
+## Todo
+- [ ] Unique color for each zone (20+ predefined rotating colors)
+- [ ] Live preview list of each cropped zone
+- [ ] Delete zone, download zone image, or copy to clipboard (per zone)
+- [ ] Filename customizable (default: `originalFileName_zoneCropperAI.zip`)
+- [ ] Optional: include or exclude prompt file in export
+- [ ] Read-only text area displaying generated instructions
+- [ ] Button to copy the prompt to clipboard
+- [ ] Support PDF file (other than just first page)

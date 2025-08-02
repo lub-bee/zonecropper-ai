@@ -104,6 +104,7 @@ const CanvasEditor = ({ image, zones, setZones}) => {
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
+            onDragStart={(e) => e.preventDefault()}
             style={{ border: '1px solid #ccc', cursor: 'crosshair', display: 'block', maxWidth: '100%' }}
         />
         </div>
