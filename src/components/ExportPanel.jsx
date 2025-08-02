@@ -8,10 +8,13 @@ const ExportPanel = ({
     image, 
     zones,
     fileName,
-    customZipName,
     includePrompt,
     setIncludePrompt,
 }) => {
+    
+    const [zipName, setZipName] = React.useState(`${fileName}_zoneCropperAI`);
+    const [include, setInclude] = React.useState(includePrompt);
+    
     const handleExport = async () => {
         
         if (!image || zones.length === 0) {
@@ -45,17 +48,29 @@ const ExportPanel = ({
         }
 
         // Generate final zip name
-        const finalName = (customZipName || `${fileName}_zoneCropperAI`).replace(/\s+/g, '_');
+        // const finalName = (customZipName || `${fileName}_zoneCropperAI`).replace(/\s+/g, '_');
 
 
         const blob = await zip.generateAsync({ type: 'blob' });
-        saveAs(blob, `${finalName}_zones.zip`);
+        saveAs(blob, `${zipName}_zones.zip`);
     };
 
     return (
         <div style={{ marginTop: '1rem' }}>
+            <h2>Export Options</h2>
 
-            {/* ------ OPTIONS ------ */}
+            {/* ------ CUSTOM ZIP NAME ------ */}
+            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+                Nom de l’archive :
+                <input
+                    type="text"
+                    value={zipName}
+                    onChange={(e) => setZipName(e.target.value)}
+                    style={{ width: '100%', maxWidth: '400px', marginTop: '0.25rem', padding: '0.3rem' }}
+                />
+            </label>
+
+            {/* ------ OPTIONS INCLUDE PROMPT ------ */}
             <div style={{ marginBottom: '1rem' }}>
                 <label>
                     <input

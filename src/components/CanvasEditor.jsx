@@ -49,7 +49,7 @@ const CanvasEditor = ({ image, zones, setZones}) => {
 
         // Draw current rectangle while dragging
         if (currentRect) {
-            ctx.strokeStyle = 'lightgray';
+            ctx.strokeStyle = 'red';
             ctx.lineWidth = 1;
             ctx.setLineDash([4, 2]);
             ctx.strokeRect(currentRect.x, currentRect.y, currentRect.width, currentRect.height);
