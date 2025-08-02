@@ -35,7 +35,7 @@ const DocumentLoader = ({ onImageLoad }) => {
                     await page.render(renderContext).promise;
                     const dataUrl = canvas.toDataURL();
 
-                    onImageLoad(dataUrl); // Envoie l'image rendue
+                    onImageLoad(dataUrl, file.name);
                 } catch (err) {
                     console.error('Erreur de rendu PDF :', err);
                     alert('Erreur lors du chargement du PDF.');

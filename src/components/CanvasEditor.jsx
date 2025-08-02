@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { ZONE_COLORS } from '../utils/color';
 
 const CanvasEditor = ({ image, zones, setZones}) => {
     const canvasRef = useRef(null);
@@ -35,19 +36,20 @@ const CanvasEditor = ({ image, zones, setZones}) => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(imgRef.current, 0, 0);
 
-        // Draw existing zones
+        // Draw zones
         zones.forEach((zone, idx) => {
-            ctx.strokeStyle = 'red';
+            const color = ZONE_COLORS[idx % ZONE_COLORS.length];
+            ctx.strokeStyle = color;
             ctx.lineWidth = 2;
             ctx.strokeRect(zone.x, zone.y, zone.width, zone.height);
             ctx.font = '16px sans-serif';
-            ctx.fillStyle = 'red';
+            ctx.fillStyle = color;
             ctx.fillText(`${idx + 1}`, zone.x + 4, zone.y + 16);
         });
 
         // Draw current rectangle while dragging
         if (currentRect) {
-            ctx.strokeStyle = 'blue';
+            ctx.strokeStyle = 'red';
             ctx.lineWidth = 1;
             ctx.setLineDash([4, 2]);
             ctx.strokeRect(currentRect.x, currentRect.y, currentRect.width, currentRect.height);
@@ -104,6 +106,7 @@ const CanvasEditor = ({ image, zones, setZones}) => {
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
+            onDragStart={(e) => e.preventDefault()}
             style={{ border: '1px solid #ccc', cursor: 'crosshair', display: 'block', maxWidth: '100%' }}
         />
         </div>
