@@ -11,7 +11,7 @@
 - Load images (`.png`, `.jpg`) or PDFs (first page only for now)
 - Display image in a canvas with zoom-fit
 - Draw custom rectangular zones with click-and-drag
-- [Todo] Unique color for each zone (20+ predefined rotating colors)
+- Unique color for each zone (20+ predefined rotating colors)
 - Zones are numbered and overlaid directly on the canvas
 - Export zones as individual cropped images
 - Generate prompt file (plain text) to guide translation
@@ -21,13 +21,13 @@
 - Live preview list of each cropped zone
 - Delete zone, download zone image, or copy to clipboard (per zone)
 - Export all zones + prompt file in a single `.zip`
-- [Todo] Filename customizable (default: `originalFileName_zoneCropperAI.zip`)
-- [Todo] Optional: include or exclude prompt file in export
+- Filename customizable (default: `originalFileName_zoneCropperAI.zip`)
+- Optional: include or exclude prompt file in export
 
 ### Prompt display
 
-- [Todo] Read-only text area displaying generated instructions
-- [Todo] Button to copy the prompt to clipboard
+- Read-only text area displaying generated instructions
+- Button to copy the prompt to clipboard
 
 ---
 
@@ -44,21 +44,26 @@
 ## Project Structure
 
 ```
-
 /src/
-├── App.jsx
+├── App.jsx                         # État global : image, zones, nom fichier
+├── main.jsx                        # Point d’entrée React
+│
 ├── components/
-│   ├── DocumentLoader.jsx      # Loads image or PDF
-│   ├── CanvasEditor.jsx        # Canvas drawing and zone logic
-│   ├── ExportPanel.jsx         # Export options, ZIP generation
-│   ├── PromptOutput.jsx        # Displays generated prompt
-│   └── ZoneList.jsx            # Displays list of zones + actions
+│   ├── CanvasEditor.jsx            # Affiche l’image et permet de dessiner les zones (canvas)
+│   ├── DocumentLoader.jsx          # Upload PNG / PDF + preview 1re page
+│   ├── ZoneList.jsx                # Liste des zones avec preview, delete, DL
+│   ├── PromptOutput.jsx            # Affiche le prompt généré + bouton de copie
+│   └── ExportPanel.jsx             # Bloc d’export ZIP avec options et nom d’archive
+│
 ├── utils/
-│   ├── zoneHelpers.js          # Cropping and export helpers
-│   └── promptGenerator.js      # Prompt construction logic
+│   ├── colors.js                   # Palette unique de 20 couleurs pour les zones
+│   ├── promptGenerator.js          # Génère le texte de consigne de traduction
+│   └── zoneHelpers.js              # Crop d’image, toDataURL, etc.
+│
 ├── styles/
-│   └── main.css
-
+│   └── main.css                    # Styles de base (optionnel ou remplacé par Tailwind)
+│
+└── assets/                         # (Optionnel) fichiers exemple
 ```
 
 ---
@@ -67,7 +72,7 @@
 
 ```
 
-Please translate each zone faithfully in the given order. Do not reorganize or reword.
+Translate each zone faithfully in the given order. Do not reorganize or reword.
 
 1. \[zone\_1.png]
 2. \[zone\_2.png]
