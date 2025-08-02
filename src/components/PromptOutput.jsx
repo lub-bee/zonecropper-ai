@@ -9,12 +9,12 @@ const PromptOutput = ({ zones }) => {
 
     const handleCopy = () => {
         navigator.clipboard.writeText(promptText);
-        alert('Prompt copié dans le presse-papier.');
+        alert('Translate each zone faithfully in the given order. Do not reorganize or reword.');
     };
 
     return (
         <div style={{ marginTop: '2rem' }}>
-            <h2>Prompt de traduction</h2>
+            <h2>Prompt</h2>
             <textarea
                 readOnly
                 value={promptText}
@@ -22,7 +22,7 @@ const PromptOutput = ({ zones }) => {
                 style={{ width: '100%', fontFamily: 'monospace', padding: '0.5rem' }}
             />
             <button onClick={handleCopy} style={{ marginTop: '0.5rem' }}>
-                📋 Copier le texte
+                Copy
             </button>
         </div>
     );

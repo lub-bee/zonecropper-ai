@@ -107,10 +107,8 @@ This is an internal or private tool. You are free to use, adapt, or extend it fo
 
 ## Changelog
 
-### v1.0
-- Select a picture (PNG/JPG)
-- Click and slide to generate zones
-- Automatically generate on download a cropped image of the zones and a prompt to translate it.
+### v1.2
+- [X] Translated to English
 
 ### v1.1
 - [X] Unique color for each zone (20+ predefined rotating colors)
@@ -125,6 +123,10 @@ This is an internal or private tool. You are free to use, adapt, or extend it fo
 - [X] Optional: include or exclude prompt file in export
 - [X] Button to copy the prompt to clipboard
 
+### v1.0
+- Select a picture (PNG/JPG)
+- Click and slide to generate zones
+- Automatically generate on download a cropped image of the zones and a prompt to translate it.
 ---
 
 ## Bug Known
@@ -136,6 +138,7 @@ This is an internal or private tool. You are free to use, adapt, or extend it fo
 
 ## Todo
 
+- [ ] UX global rework
 - [ ] Support PDF file (and not just the first page)
 - [ ] Display a warning for Firefox / Safari users to inform that the images can't be put in clipboard
 - [ ] Add the option to manually add one color for the area (for visibility purpose)

@@ -1,6 +1,6 @@
 export const generatePrompt = (lines) => {
   return [
-    "Merci de traduire fidèlement chaque zone dans l'ordre indiqué, sans réorganiser ni reformuler.",
+    "Translate each zone faithfully in the given order. Do not reorganize or reword.",
     "",
     ...lines,
   ].join('\n');

@@ -37,15 +37,15 @@ const DocumentLoader = ({ onImageLoad }) => {
 
                     onImageLoad(dataUrl, file.name);
                 } catch (err) {
-                    console.error('Erreur de rendu PDF :', err);
-                    alert('Erreur lors du chargement du PDF.');
+                    console.error('Error loading PDF :', err);
+                    alert('Error loading PDF.');
                 }
             } else if (file.type.startsWith('image/')) {
                 const imgReader = new FileReader();
                 imgReader.onload = (ev) => onImageLoad(ev.target.result);
                 imgReader.readAsDataURL(file);
             } else {
-                alert('Format non supporté. Veuillez sélectionner une image ou un PDF.');
+                alert('Unsupported file type. Please select a PDF or image file.');
             }
         };
 

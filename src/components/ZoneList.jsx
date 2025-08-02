@@ -62,7 +62,7 @@ const ZoneList = ({ image, zones, onDelete }) => {
 
     return (
         <div style={{ marginTop: '1rem' }}>
-            <h2>Zones sélectionnées ({zones.length})</h2>
+            <h2>Selected Zones ({zones.length})</h2>
 
             {zones.length >= 20 ? (
                 <div style={{ color: '#b55', fontSize: '0.9rem' }}>

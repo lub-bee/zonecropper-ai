@@ -18,7 +18,7 @@ const ExportPanel = ({
     const handleExport = async () => {
         
         if (!image || zones.length === 0) {
-            alert('Aucune zone à exporter.');
+            alert('Nothing to export.');
             return;
         }
 
@@ -47,10 +47,6 @@ const ExportPanel = ({
             zip.file('prompt.txt', promptText);
         }
 
-        // Generate final zip name
-        // const finalName = (customZipName || `${fileName}_zoneCropperAI`).replace(/\s+/g, '_');
-
-
         const blob = await zip.generateAsync({ type: 'blob' });
         saveAs(blob, `${zipName}_zones.zip`);
     };
@@ -61,7 +57,7 @@ const ExportPanel = ({
 
             {/* ------ CUSTOM ZIP NAME ------ */}
             <label style={{ display: 'block', marginBottom: '0.5rem' }}>
-                Nom de l’archive :
+                Archive name
                 <input
                     type="text"
                     value={zipName}
@@ -79,12 +75,12 @@ const ExportPanel = ({
                         onChange={(e) => setIncludePrompt(e.target.checked)}
                         style={{ marginRight: '0.5rem' }}
                     />
-                    Inclure le fichier texte de consigne (prompt.txt)
+                    Include a text file of the prompt (prompt.txt)
                 </label>
             </div>
 
             {/* ------ EXPORT BUTTON ------ */}
-            <button onClick={handleExport}>📦 Exporter les zones</button>
+            <button onClick={handleExport}>Export</button>
         </div>
     );
 };
